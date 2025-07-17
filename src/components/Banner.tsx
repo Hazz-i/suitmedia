@@ -39,7 +39,7 @@ const Banner = () => {
 			</div>
 
 			{/* Diagonal cut at the bottom */}
-			<div className='absolute bottom-0 left-0 w-full h-[20rem] bg-white transform -skew-y-9 origin-bottom-left translate-y-80'></div>
+			<div className='absolute bottom-0 left-0 w-full h-[20rem] bg-gray-50 transform -skew-y-9 origin-bottom-left translate-y-80'></div>
 		</section>
 	);
 };

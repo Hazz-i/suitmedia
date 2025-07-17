@@ -13,16 +13,19 @@ const PostCard = ({ post }: { post: Post }) => {
 			// Replace the full domain with proxy path
 			return url.replace('https://assets.suitdev.com', '');
 		}
+
 		// Check if medium_image exists and has items
 		if (post.medium_image && post.medium_image.length > 0) {
 			const url = post.medium_image[0].url;
 			// Replace the full domain with proxy path
 			return url.replace('https://assets.suitdev.com', '');
 		}
+
 		return null;
 	};
 
 	const imageUrl = getImageUrl();
+	console.log(imageUrl);
 
 	return (
 		<div className='bg-white rounded-lg shadow-md overflow-hidden'>

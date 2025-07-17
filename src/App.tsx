@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import type { Post, ApiResponse } from './utils/types';
+import { getApiUrl } from './utils/api';
 import PostCard from './components/PostCard';
 import Header from './components/Header';
 import Banner from './components/Banner';
@@ -40,7 +41,7 @@ function App() {
 	const fetchPosts = async () => {
 		try {
 			setLoading(true);
-			const response = await axios.get<ApiResponse>('/api/ideas', {
+			const response = await axios.get<ApiResponse>(getApiUrl('/api/ideas'), {
 				params: {
 					'page[number]': currentPage,
 					'page[size]': pageSize,

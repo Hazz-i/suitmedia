@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import type { Post } from '../utils/types';
+import { getAssetUrl } from '../utils/api';
 
 // Post Card Component
 const PostCard = ({ post }: { post: Post }) => {
@@ -10,22 +11,21 @@ const PostCard = ({ post }: { post: Post }) => {
 		// Check if small_image exists and has items
 		if (post.small_image && post.small_image.length > 0) {
 			const url = post.small_image[0].url;
-			// Replace the full domain with proxy path
-			return url.replace('https://assets.suitdev.com', '');
+			// Extract path and use getAssetUrl helper
+			const path = url.replace('https://assets.suitdev.com', '');
+			return getAssetUrl(path);
 		}
-
 		// Check if medium_image exists and has items
 		if (post.medium_image && post.medium_image.length > 0) {
 			const url = post.medium_image[0].url;
-			// Replace the full domain with proxy path
-			return url.replace('https://assets.suitdev.com', '');
+			// Extract path and use getAssetUrl helper
+			const path = url.replace('https://assets.suitdev.com', '');
+			return getAssetUrl(path);
 		}
-
 		return null;
 	};
 
 	const imageUrl = getImageUrl();
-	console.log(imageUrl);
 
 	return (
 		<div className='bg-white rounded-lg shadow-md overflow-hidden'>
